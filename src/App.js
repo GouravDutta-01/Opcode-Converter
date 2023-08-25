@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import TextForm from "./components/TextForm";
+import LoadingBar from 'react-top-loading-bar'
+import React, { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const [mode, setMode] = useState("light");
+  const showAlert = (message) => {
+    toast(message);
+  };
+  const toggleMode = () => {
+    setProgress(30);
+    if(mode == "light"){
+      setMode("dark");
+      document.body.style.backgroundColor = "#06022d";
+      showAlert("Dark mode has been enabled!");
+    }
+    else{
+      setMode("light");
+      document.body.style.backgroundColor = "white";
+      showAlert("Dark mode has been disabled!");
+    }
+    setProgress(100);
+  };
+  const [progress, setProgress] = useState(0)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <LoadingBar
+        height={3}
+        color='#cf2368'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
+        <Navbar mode={mode} toggleMode={toggleMode} />
+        <ToastContainer position="top-center" autoClose={1000}/>
+        <div className="container my-3">
+          <TextForm
+                  showAlert={showAlert}
+                  mode={mode}
+                  setProgress={setProgress}
+                />
+        </div>
+    </>
   );
 }
 
