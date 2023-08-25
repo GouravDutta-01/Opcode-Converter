@@ -280,7 +280,7 @@ export default function TextForm(props) {
     <>
     <div className="container" style={{color: (props.mode==='dark')?'white':'black'}}>
         <h1 className="text-center"><span style={{color: 'green'}}>Opcode</span>Converter</h1>
-        <h4 className="my-5 text-center">Easily convert mnemonics of Intel 8085 microproccessor to opcode online</h4>
+        <h4 className="my-5 text-center">Easily convert mnemonics of Intel 8085 microprocessor to opcode online</h4>
       <div className="mb-3">
         <input
           className="form-control"
