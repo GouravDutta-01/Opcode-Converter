@@ -43,7 +43,7 @@ export default function TextForm(props) {
       CMPE: "BB (1 byte instruction)",
       CMPH: "BC (1 byte instruction)",
       CMPL: "BD (1 byte instruction)",
-      CMPM: "BD (1 byte instruction)",
+      CMPM: "BE (1 byte instruction)",
       CNC: "D4 (3 bytes instruction)",
       CNZ: "C4 (3 bytes instruction)",
       CP: "F4 (3 bytes instruction)", 
